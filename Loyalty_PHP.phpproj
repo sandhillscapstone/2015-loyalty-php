@@ -1,0 +1,105 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Loyalty_PHP</Name>
+    <ProjectGuid>{4624d957-b136-4f12-befe-b5d5ed11413b}</ProjectGuid>
+    <RootNamespace>Loyalty_PHP</RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="templates\home.html" />
+    <Compile Include="templates\home.html~" />
+    <Compile Include="vendor\composer\autoload_real.php" />
+    <Compile Include="vendor\composer\autoload_psr4.php" />
+    <Compile Include="vendor\composer\installed.json" />
+    <Compile Include="vendor\composer\autoload_namespaces.php" />
+    <Compile Include="vendor\composer\autoload_classmap.php" />
+    <Compile Include="vendor\composer\ClassLoader.php" />
+    <Compile Include="vendor\slim\slim\Slim\Http\Request.php" />
+    <Compile Include="vendor\slim\slim\Slim\Http\Util.php" />
+    <Compile Include="vendor\slim\slim\Slim\Http\Headers.php" />
+    <Compile Include="vendor\slim\slim\Slim\Http\Response.php" />
+    <Compile Include="vendor\slim\slim\Slim\Http\Cookies.php" />
+    <Compile Include="vendor\slim\slim\Slim\Helper\Set.php" />
+    <Compile Include="vendor\slim\slim\Slim\Middleware\PrettyExceptions.php" />
+    <Compile Include="vendor\slim\slim\Slim\Middleware\ContentTypes.php" />
+    <Compile Include="vendor\slim\slim\Slim\Middleware\SessionCookie.php" />
+    <Compile Include="vendor\slim\slim\Slim\Middleware\Flash.php" />
+    <Compile Include="vendor\slim\slim\Slim\Middleware\MethodOverride.php" />
+    <Compile Include="vendor\slim\slim\Slim\Exception\Pass.php" />
+    <Compile Include="vendor\slim\slim\Slim\Exception\Stop.php" />
+    <Compile Include="vendor\slim\slim\Slim\Log.php" />
+    <Compile Include="vendor\slim\slim\Slim\LogWriter.php" />
+    <Compile Include="vendor\slim\slim\Slim\Slim.php" />
+    <Compile Include="vendor\slim\slim\Slim\Router.php" />
+    <Compile Include="vendor\slim\slim\Slim\Environment.php" />
+    <Compile Include="vendor\slim\slim\Slim\Route.php" />
+    <Compile Include="vendor\slim\slim\Slim\View.php" />
+    <Compile Include="vendor\slim\slim\Slim\Middleware.php" />
+    <Compile Include="vendor\slim\slim\tests\templates\test.php" />
+    <Compile Include="vendor\slim\slim\tests\Http\CookiesTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Http\HeadersTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Http\UtilTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Http\RequestTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Http\ResponseTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Helper\SetTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Middleware\PrettyExceptionsTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Middleware\MethodOverrideTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Middleware\FlashTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Middleware\SessionCookieTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Middleware\ContentTypesTest.php" />
+    <Compile Include="vendor\slim\slim\tests\EnvironmentTest.php" />
+    <Compile Include="vendor\slim\slim\tests\RouteTest.php" />
+    <Compile Include="vendor\slim\slim\tests\LogTest.php" />
+    <Compile Include="vendor\slim\slim\tests\Foo.php" />
+    <Compile Include="vendor\slim\slim\tests\RouterTest.php" />
+    <Compile Include="vendor\slim\slim\tests\ViewTest.php" />
+    <Compile Include="vendor\slim\slim\tests\SlimTest.php" />
+    <Compile Include="vendor\slim\slim\tests\README" />
+    <Compile Include="vendor\slim\slim\tests\LogWriterTest.php" />
+    <Compile Include="vendor\slim\slim\tests\MiddlewareTest.php" />
+    <Compile Include="vendor\slim\slim\tests\bootstrap.php" />
+    <Compile Include="vendor\slim\slim\README.markdown" />
+    <Compile Include="vendor\slim\slim\phpunit.xml.dist" />
+    <Compile Include="vendor\slim\slim\index.php" />
+    <Compile Include="vendor\slim\slim\composer.json" />
+    <Compile Include="vendor\slim\slim\LICENSE" />
+    <Compile Include="vendor\slim\slim\CONTRIBUTING.md" />
+    <Compile Include="vendor\autoload.php" />
+    <Compile Include="html\index.php" />
+    <Compile Include="src\Home.php" />
+    <Compile Include="provision\bootstrap.sh" />
+    <Compile Include="composer.lock" />
+    <Compile Include="composer.json" />
+    <Compile Include="LICENSE" />
+    <Compile Include="Vagrantfile" />
+    <Compile Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="templates" />
+    <Folder Include="vendor\composer" />
+    <Folder Include="vendor\slim\slim\Slim\Http" />
+    <Folder Include="vendor\slim\slim\Slim\Helper" />
+    <Folder Include="vendor\slim\slim\Slim\Middleware" />
+    <Folder Include="vendor\slim\slim\Slim\Exception" />
+    <Folder Include="vendor\slim\slim\Slim" />
+    <Folder Include="vendor\slim\slim\tests\templates" />
+    <Folder Include="vendor\slim\slim\tests\Http" />
+    <Folder Include="vendor\slim\slim\tests\Helper" />
+    <Folder Include="vendor\slim\slim\tests\Middleware" />
+    <Folder Include="vendor\slim\slim\tests" />
+    <Folder Include="vendor\slim\slim" />
+    <Folder Include="vendor\slim" />
+    <Folder Include="vendor" />
+    <Folder Include="html" />
+    <Folder Include="src" />
+    <Folder Include="provision" />
+  </ItemGroup>
+</Project>
