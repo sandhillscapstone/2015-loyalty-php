@@ -1,0 +1,2 @@
+#!/bin/bash
+composer -d=/var/www install
