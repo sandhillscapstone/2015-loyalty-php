@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/var/www"
   config.vm.synced_folder ".", "/vagrant"
 end
-=======
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
