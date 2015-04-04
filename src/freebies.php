@@ -22,7 +22,9 @@
 
     <!-- link to external jQuery file -->
     <script src="calculator.js"></script>
+	
 
+	
 </head>
 
 <body>
@@ -32,13 +34,13 @@
 <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="freebies.php">MeanBean</a>
+      <a class="navbar-brand" href="custSearch.php">MeanBean</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="admin.php">Admin</a></li>
-        <li><a href="new.php">New Customer</a></li>
-        <li><a href="search.php">Search</a></li>
+        <li><a href="adminAddCustomer.html">New Customer</a></li>
+        <li><a href="custSearch.php">Search</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -50,6 +52,10 @@
 <!-- End Navigation Bar -->
 
 <!-- Start Freebies Container -->
+
+<?php include 'freebiesPopulate.php'; ?>
+
+
 <div class="container-fluid">
 
 <div class="row">
@@ -63,9 +69,11 @@
 			<table style="margin-top:10px;">
 
 				<th colspan="2" style="border-bottom:1px solid black;text-align:center;font-size:25px;">Customer Information</th>
-               	<tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Name:</td><td id="customerName" style="padding-bottom:10px;">Customer Information</td></tr>
-				<tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Freebies:</td><td id="customerFreebies" style="padding-bottom:10px;"></td></tr>
-				<tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Points:</td><td id="customerPoints" style="padding-bottom:10px;"></td></tr>
+				<input type="hidden" id="customerid" value='<?php echo $row['CustomerID']; ?>'>
+               	<tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Name:</td><td id="customerName" style="padding-bottom:10px;"><?php echo $row['FirstName']." ".$row['LastName']; ?></td></tr>
+				<tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Points in System:</td><td id="systemPoints" style="padding-bottom:10px;"><?php echo $row['Points']; ?></td></tr>
+				<!-- <tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Freebies:</td><td id="customerFreebies" style="padding-bottom:10px;"></td></tr> -->
+				<tr style="font-size:20px;"><td style="font-weight:bold;padding-bottom:10px;">Points to +/- :</td><td id="customerPoints" style="padding-bottom:10px;"></td></tr>
 
 			</table>
 
@@ -93,7 +101,7 @@
 			<input type="button" value="7" class="numberButtons" style="margin:10px;width:75px;height:75px;"/>
 			<input type="button" value="8" class="numberButtons" style="margin:10px;width:75px;height:75px;"/>
 			<input type="button" value="9" class="numberButtons" style="margin:10px;width:75px;height:75px;"/>
-			<input type="button" value="Redeem" style="margin:10px;width:100px;height:75px;"/>
+			<input type="button" value="Redeem" id="redeem" style="margin:10px;width:100px;height:75px;"/>
 			<br>
                <input type="button" value="Clear" id="clear" style="margin:10px;width:75px;height:75px;"/>
 			<input type="button" value="0" class="numberButtons" style="margin:10px;width:75px;height:75px;"/>
