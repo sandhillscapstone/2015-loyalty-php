@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <script>
+function checkForm(form){
+    if(form.password.value != form.conpassword.value){
+        alert("Error: passwords do not match");
+        return false;
+    }
+}
+    </script>
+
+    <title>MeanBean - Admin - Edit Customer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="styleSheet.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <style>
+
+table
+{
+    margin-left:auto;
+    margin-right:auto;
+    border-collapse:collapse;
+}
+
+td
+{
+    text-align: right;
+    padding: 5px;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/search">MeanBean</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="/customers/add">New Customer</a></li>
+                    <li><a href="/search">Search</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- End Navigation Bar -->
+
+    <br>
+    <table>
+        <tr>
+            <td style="border-bottom:1px solid black;font-size:20px;">Accounting Info</td>
+            <td style="border-bottom:1px solid black;"></td>
+        </tr>
+        <tr><td><form action="/accounting/deleteAll" method="post">
+                    <input type="submit" value="Delete All Entries" name="delete" onclick="return confirm('Are you sure you want to continue?')" />
+        </form></td></tr>
+
+        <tr>
+            <td >Total Points Redeemed in System:</td>
+            <td >{{ totalPointsFromRedeemLog }}</td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <td>Date/Time:</td>
+            <td>User:</td>
+            <td>Redeemed</td>
+        </tr>
+        {% for row in redeemlog %}
+        <tr>
+            <td>{{ row.Time }}</td>
+            <td>{{ row.User }}</td>
+            <td>{{ row.Point }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

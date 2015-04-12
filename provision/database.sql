@@ -12,11 +12,9 @@ CREATE TABLE `Customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `Customers` VALUES (1,'Mario','Vickers','9105550001',10,'mario@example.com');
-INSERT INTO `Customers` VALUES (2,'Andrea','Plante','9105550002',1,'andrea.plante@example.com');
 INSERT INTO `Customers` VALUES (3,'Kevin','Brown','9105550003',0,NULL);
 INSERT INTO `Customers` VALUES (4,'Tony','Volcy','9105550004',9,'tvolcy@example.com');
 INSERT INTO `Customers` VALUES (5,'Bradley','Toms','9105550005',4,'tomsb@example.com');
-INSERT INTO `Customers` VALUES (6,'Kenneth','Barber','9105550006',2,'k.barber@example.com');
 INSERT INTO `Customers` VALUES (7,'Vince','Sauve','9105550007',9,'vincesauve@example.com');
 INSERT INTO `Customers` VALUES (8,'Otto','Flamand','9105550008',3,'otto.flamand1@example.com');
 INSERT INTO `Customers` VALUES (9,'Ford','Doran','9105550009',0,NULL);
@@ -26,5 +24,18 @@ INSERT INTO `Customers` VALUES (12,'Joseph','Leamon','9105550012',9001,'joseph3@
 INSERT INTO `Customers` VALUES (13,'Luis','Tackaberry','9105550013',1,'luist@example.com');
 INSERT INTO `Customers` VALUES (14,'Doug','Stolk','9105550014',11,'doug.stolk@example.com');
 INSERT INTO `Customers` VALUES (15,'Patricia','Downey','9105550015',0,'PATRICIA@example.com');
-INSERT INTO `Customers` VALUES (16,'Wendy','Anglehart','9105550016',0,'anglehart@example.com');
+INSERT INTO `Customers` VALUES (16,'Wendy','Anglehart','9105550016',80,'anglehart@example.com');
 INSERT INTO `Customers` VALUES (17,'Francis','Hogue','9105550017',0,'fh@example.com');
+INSERT INTO `Customers` VALUES (18,'Andrew','Thompson','9108174181',9,'andrew@tobarja.com');
+DROP TABLE IF EXISTS `RedeemLog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `RedeemLog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `User` varchar(50) NOT NULL,
+  `Point` int(3) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+INSERT INTO `RedeemLog` VALUES (1,'2015-04-12 05:17:53','admin',1);
