@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>MeanBean - Search</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="styleSheet.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <style>
+
+table
+{
+    margin-left:auto;
+    margin-right:auto;
+    border-collapse:collapse;
+}
+
+td
+{
+    text-align: right;
+    padding: 5px;
+}
+
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script>
+
+$(document).ready(function() {
+
+        xx();
+
+        $( "#search" ).keyup(xx);
+
+        function xx () {
+
+        var url = "/search/getcustomers";
+        var text = $("#search").val();
+
+        if(text==""){}
+
+        else{
+        $.post(url, {searchString: text}, function(data){
+
+            $("#result").html(data).show();
+
+            });  //$.post close
+        }
+        } //function close
+
+}); //document ready close
+
+    </script>
+
+</head>
+
+<body>
+    {% include 'NavBar.html' %}
+
+    <center><div>Start typing to find customers</div></center><br />
+    <center><input type='text' id='search' value='{{ searchText }}'/></center>
+
+    <div id="result"></div>
+</body>
+</html>
