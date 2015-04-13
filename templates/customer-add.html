@@ -42,23 +42,7 @@ td
 
     <!-- Navigation Bar -->
 
-    <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/search">MeanBean</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="admin.php">Admin</a></li>
-                    <li><a href="/customers/add">New Customer</a></li>
-                    <li><a href="/search">Search</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	{% include 'NavBar.html' %}
 
     <!-- End Navigation Bar -->
 
