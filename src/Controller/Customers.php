@@ -171,8 +171,7 @@ EOT;
         }
 
         if ($queryComplete) {
-            header("refresh:3;url=/search?searchText=$firstname $lastname");
-            echo "<h1>You will be redirected in 3 seconds.  <br>  You have updated a customer in the database, their name is $firstname $lastname , with $points points, and number $telephone, with email $email</h1>";
+            $this->app->redirect("/search?searchText=$firstname $lastname");
         } else {
             echo "Error: " .$sql. "<br>" . "PDO::errorInfo():\n";
             print_r($statement->errorInfo());
