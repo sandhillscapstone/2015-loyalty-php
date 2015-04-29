@@ -42,17 +42,19 @@ EOT;
         if ($statement){
             echo "<br>";
             echo "<div style='width:60%;margin-right:auto;margin-left:auto;'>";
+            $counter = 0;
+            $bgcolor = array("#D8D8D8", "#848484");
             foreach($statement as $row){
+                $counter++;
                 $telephone = substr($row["Telephone"],0,3) . '-' . substr($row["Telephone"],3,3) . '-' . substr($row["Telephone"], 6);
                 $freebieUrl = "/freebies/" . $row['CustomerID'];
-                $bgcolor = "#D8D8D8";
-                echo "<div style='background-color:" . $bgcolor . ";border:1px solid #ffffff;width:100%;'>";
+                echo "<div style='background-color:" . $bgcolor[$counter % 2] . ";width:100%;'>";
                 echo "<a href= '" . $freebieUrl . " ' style='text-decoration:none; color:black; font-size:30px;'>
-                        <span style='background-color:" . $bgcolor . ";padding:5px;'>
+                        <div style='display:inline-block;background-color:" . $bgcolor[$counter % 2] . ";padding:5px;'>
                         " . $row["FirstName"] . " " . $row["LastName"] . " " . $telephone. "
-                        </span>
+                        </div >
                     </a>";
-                echo "<a href= '/customers/edit/". $row["CustomerID"] . "' style='float:right;text-decoration:none; color:black; font-size:30px;'><span style='background-color:" . $bgcolor . ";padding:5px;'>Edit</span></a>";
+                echo "<a href= '/customers/edit/". $row["CustomerID"] . "' style='float:right;text-decoration:none; color:black; font-size:30px;'><div style='background-color:" . $bgcolor[$counter % 2] . ";padding:5px;'>Edit</div></a>";
                 echo "</div>";
             }
             echo "</div>";
