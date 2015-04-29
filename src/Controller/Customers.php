@@ -40,14 +40,22 @@ EOT;
 
         $statement->execute($params);
         if ($statement){
+            echo "<br>";
+            echo "<div style='width:60%;margin-right:auto;margin-left:auto;'>";
             foreach($statement as $row){
+                $telephone = substr($row["Telephone"],0,3) . '-' . substr($row["Telephone"],3,3) . '-' . substr($row["Telephone"], 6);
                 $freebieUrl = "/freebies/" . $row['CustomerID'];
-                echo "<table><tr>" .
-                    "<td><a href='" . $freebieUrl . "'>" . $row["FirstName"] . " " . $row["LastName"] ."</a></td>" .
-                    "<td><a href='" . $freebieUrl . "'>" . $row["Telephone"]. "</a></td>" .
-                    "<td><a href='/customers/edit/".$row['CustomerID']."'>(Edit)</a></td>" .
-                    "</tr></table>";
+                $bgcolor = "#D8D8D8";
+                echo "<div style='background-color:" . $bgcolor . ";border:1px solid #ffffff;width:100%;'>";
+                echo "<a href= '" . $freebieUrl . " ' style='text-decoration:none; color:black; font-size:30px;'>
+                        <span style='background-color:" . $bgcolor . ";padding:5px;'>
+                        " . $row["FirstName"] . " " . $row["LastName"] . " " . $telephone. "
+                        </span>
+                    </a>";
+                echo "<a href= '/customers/edit/". $row["CustomerID"] . "' style='float:right;text-decoration:none; color:black; font-size:30px;'><span style='background-color:" . $bgcolor . ";padding:5px;'>Edit</span></a>";
+                echo "</div>";
             }
+            echo "</div>";
         }
     }
 
