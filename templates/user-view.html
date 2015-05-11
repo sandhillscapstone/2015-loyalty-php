@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>MeanBean - Admin - View Users</title>
+
+    {% include 'header-common.html' %}
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    {% include 'NavBar.html' %}
+
+    <!-- End Navigation Bar -->
+
+    <div style="text-align:center;">
+        <a href="/users/add">Add User</a>
+    </div>
+    <br>
+    <table border="1">
+        <tr>
+            <td>User</td>
+            <td>Admin</td>
+            <td>Manage</td>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.UserName }}</td>
+            <td>{% if row.Admin == 1 %}Admin {% endif %}</td>
+            <td><a href="/users/delete/{{ row.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
