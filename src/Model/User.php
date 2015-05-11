@@ -10,13 +10,14 @@ class User {
 
     public function __construct($UserName, $Password, $Admin) {
         $this->UserName = $UserName;
-        $this->Password = $Password;
+        $this->Password = password_hash($Password, PASSWORD_DEFAULT);
         $this->Admin = $Admin;
     }
 
     public static function Hydrate($id, $UserName, $Password, $Admin) {
         $result = new User($UserName, $Password, $Admin);
         $result->_id = $id;
+        $result->Password = $Password;
         return $result;
     }
 

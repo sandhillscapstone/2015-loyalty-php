@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>MeanBean - Admin - Add User</title>
+
+    {% include 'header-common.html' %}
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    {% include 'NavBar.html' %}
+
+    <!-- End Navigation Bar -->
+
+    <br>
+
+  <!-- Add New User Container -->
+        <form action="" method="post">
+  <table width="480" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <th colspan="2" class="cellBoxes" style="font-size: 35px" scope="col">New User</th>
+      </tr>
+      <tr>
+        <td width="125" class="cellBoxes"><span class="labels" style="font-size:20px;height:50px;margin-bottom:10px;vertical-align:middle;line-height:50px;">User Name:</span></td>
+        <td width="309"><span style="float:left;">
+          <input type="text" name="username" tabindex="1" class="searchBarShort" value="{{ User.UserName }}"/>
+        </span></td>
+                <td>
+                    {%  if User.posted == true %}
+                    {%  if User.UserName|length == 0 %}<span style="color:red;">*</span>{% endif %}
+                    {% endif %}
+                </td>
+      </tr>
+      <tr>
+        <td class="cellBoxes"><span class="labels" style="font-size:20px;height:50px;margin-bottom:10px;vertical-align:middle;line-height:50px;">Password:</span></td>
+        <td><span style="float:left;">
+          <input type="password" name="password" tabindex="2" class="searchBarShort" value="{{ User.Password }}"/>
+        </span></td>
+                <td>
+                    {%  if User.posted == true %}
+                    {%  if User.Password|length == 0 %}<span style="color:red;">*</span>{% endif %}
+                    {% endif %}
+                </td>
+      </tr>
+      <tr>
+        <td class="cellBoxes"><span class="labels" style="font-size:20px;height:50px;margin-bottom:10px;vertical-align:middle;line-height:50px;">Admin:</span></td>
+        <td><span style="float:left;">
+          <input type="checkbox" name="admin" tabindex="2" class="searchBarShort" value="{{ User.Admin }}"/>
+        </span></td>
+                <td>
+                    {%  if User.posted == true %}
+                    {%  if User.Admin|length == 0 %}<span style="color:red;">*</span>{% endif %}
+                    {% endif %}
+                </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><span style="float:left;">
+          <input type="submit" name="newSubmit2" value="Add" tabindex="5" class="searchButton" ontouchstart="background: -webkit-linear-gradient(#ed1c24, #fe4a51);background: -o-linear-gradient(#ed1c24, #fe4a51);background: -moz-linear-gradient(#ed1c24, #fe4a51);background: linear-gradient(#ed1c24, #fe4a51);color: #fff;border-radius:20px;"/>
+        </span></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+</body>
+
+</html>

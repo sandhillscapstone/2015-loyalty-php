@@ -11,7 +11,7 @@ class UserRepository {
 
     public function Get($id) {
         $sql = <<<EOT
-            select id, UserName, Password, Admin from User
+            select id, UserName, Password, Admin from Users
             where id = :id
 EOT;
 
@@ -24,6 +24,20 @@ EOT;
         $result = \Loyalty\Model\User::Hydrate($id,
             $dbrow['UserName'], $dbrow['Password'], $dbrow['Admin']);
         return $result;
+    }
+
+    public function GetAll() {
+        $sql = <<<EOT
+            select id, UserName, Password, Admin from Users
+EOT;
+
+        $statement = $this->db->prepare($sql);
+
+        $dbresult = $statement->execute();
+        if ($dbresult) {
+            return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        return false;
     }
 
     public function GetByUserName($username) {
@@ -45,7 +59,7 @@ EOT;
     public function Save(\Loyalty\Model\User $record) {
         if ($record->id() == null) {
             $sql = <<<EOT
-                insert into User (UserName, Password, Admin)
+                insert into Users (UserName, Password, Admin)
                 values (:UserName, :Password, :Admin)
 EOT;
 
@@ -57,7 +71,7 @@ EOT;
 
         } else {
             $sql = <<<EOT
-                UPDATE User
+                UPDATE Users
                 SET `Time` = :Time, `User` = :User, `Point` = :Point
                 where id = :id
 EOT;
@@ -74,7 +88,7 @@ EOT;
     }
 
     public function Delete($id) {
-        $sql = "delete from User where id = :id";
+        $sql = "delete from Users where id = :id";
         $statement = $this->db->prepare($sql);
 
         $params = array('id' => $id);
