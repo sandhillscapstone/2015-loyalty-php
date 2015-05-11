@@ -41,19 +41,18 @@ $(document).ready(function() {
 <body>
     {% include 'NavBar.html' %}
 
-<table width="700" border="0" cellpadding="0" cellspacing="0" class="searchTable">
-  <tbody>
-    <tr>
-      <th width="140" class="searchHeading" scope="col">&nbsp;</th>
-      <th width="470"  scope="col" class="cellHeading"><span class="cellBoxes" style="font-size: 35px">Customer Search</span></th>
-      <th width="140" scope="col">&nbsp;</th>
-    </tr>
-    <tr>
-      <td colspan="2"><input name="search" type="search" id="search" size="100" class="searchBar" value="{{ searchText }}"></td>
-      <td><input type="submit" name="submit" id="submit" value="Search" class="searchButton" ontouchstart="background: -webkit-linear-gradient(#ed1c24, #fe4a51);background: -o-linear-gradient(#ed1c24, #fe4a51);background: -moz-linear-gradient(#ed1c24, #fe4a51);background: linear-gradient(#ed1c24, #fe4a51);color: #fff;border-radius:20px;"/></td>
-    </tr>
-  </tbody>
-</table>
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="searchTable">
+        <tbody>
+            <tr>
+                <th  class="cellHeading"><span class="cellBoxes" style="font-size: 35px">Customer Search</span></th>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    <input name="search" type="search" id="search" size="120" class="searchBar" value="{{ searchText }}">
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div id="result"></div>
 </body>
 </html>
