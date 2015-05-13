@@ -63,13 +63,20 @@
       <tr>
         <td class="cellBoxes"><span class="labels" style="font-size:20px;height:50px;margin-bottom:10px;vertical-align:middle;line-height:50px;">Email:</span></td>
         <td><span style="float:left;">
-          <input type="text" name="email" tabindex="3" class="searchBarShort" value="{{ Customer.Email }}"/>
+          <input type="text" name="email" tabindex="4" class="searchBarShort" value="{{ Customer.Email }}"/>
         </span></td>
       </tr>
       <tr>
         <td class="cellBoxes"><span class="labels" style="font-size:20px;height:50px;margin-bottom:10px;vertical-align:middle;line-height:50px;">Points:</span></td>
         <td><span style="float:left;">
           <input type="text" name="points" tabindex="5" class="searchBarShort" value="{{ Customer.Points }}"/>
+        </span></td>
+      </tr>
+      <tr>
+        <td class="cellBoxes"><span class="labels" style="font-size:20px;height:50px;margin-bottom:10px;vertical-align:middle;line-height:50px;">Donor:</span></td>
+        <td><span style="float:left;">
+          <input type="checkbox" name="donor" tabindex="6" class="searchBarShort"
+          {% if Customer.Donor %}checked="checked"{% endif %} />
         </span></td>
       </tr>
       <tr>

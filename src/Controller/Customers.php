@@ -67,6 +67,11 @@ class Customers {
         $telephone = $this->app->request->post('telephone');
         $points = $this->app->request->post('points');
         $email = $this->app->request->post('email');
+        if ($this->app->request->post('donor') === null) {
+            $donor = false;
+        } else {
+            $donor = true;
+        }
 
         $telephone = preg_replace("/[^0-9]/", "", $telephone); //remove any non-digit chars
 
@@ -75,6 +80,7 @@ class Customers {
             'Telephone' => $telephone,
             'Points' => $points,
             'Email' => $email,
+            'Donor' => $donor,
             'posted' => true);
 
         if ($this->IsNullOrEmptyString($firstname) ||
@@ -84,7 +90,7 @@ class Customers {
             $this->app->stop();
         }
 
-        $Customer = new \Loyalty\Model\Customer($firstname, $lastname, $telephone, $email, $points, 0);
+        $Customer = new \Loyalty\Model\Customer($firstname, $lastname, $telephone, $email, $points, $donor);
         $CustomerRepository = new CustomerRepository($this->app->db);
 
         $queryComplete = $CustomerRepository->Save($Customer);
@@ -111,12 +117,18 @@ class Customers {
         $telephone = $this->app->request->post('telephone');
         $points = $this->app->request->post('points');
         $email = $this->app->request->post('email');
+        if ($this->app->request->post('donor') === null) {
+            $donor = false;
+        } else {
+            $donor = true;
+        }
 
         $databag = array('FirstName' => $firstname,
             'LastName' => $lastname,
             'Telephone' => $telephone,
             'Points' => $points,
             'Email' => $email,
+            'Donor' => $donor,
             'posted' => true);
 
         if ($this->IsNullOrEmptyString($firstname) ||
@@ -135,6 +147,7 @@ class Customers {
             $Customer->Telephone = $telephone;
             $Customer->Email = $email;
             $Customer->Points = $points;
+            $Customer->Donor = $donor;
 
             $queryComplete = $CustomerRepository->Save($Customer);
             if ($queryComplete) {
